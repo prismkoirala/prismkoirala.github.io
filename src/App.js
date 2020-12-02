@@ -1,3 +1,4 @@
+//gh-pages
 // React imports
 import React from 'react'
 import './App.css';
@@ -7,7 +8,7 @@ import {BrowserRouter as Router, HashRouter, Route} from 'react-router-dom'
 import { Link } from 'react-router-dom';
 
 // semantic-UI imports
-import {, Label, Grid, Advertisement, Container, Segment, Icon, Modal } from 'semantic-ui-react';
+import {Label, Grid, Advertisement, Container, Segment, Icon, Modal } from 'semantic-ui-react';
 
 // components imports here
 import Header from "./components/Header"
