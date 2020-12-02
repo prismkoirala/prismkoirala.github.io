@@ -3,7 +3,7 @@ import React from 'react'
 import './App.css';
 
 // react-router-dom
-import {HashRouter, BrowserRouter as Router, HashRouter, Route} from 'react-router-dom'
+import {BrowserRouter as Router, HashRouter, Route} from 'react-router-dom'
 import { Link } from 'react-router-dom';
 
 // semantic-UI imports
