@@ -1,40 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vuexy - Vuejs Admin Dashboard Template</title>
-  <link rel="stylesheet" type="text/css" href="/loader.css" />
-  <script type="module" crossorigin src="/assets/index.201a1d76.js"></script>
-  <link rel="stylesheet" href="/assets/index.7a354e7c.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prism Koirala - Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
 </head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold gradient-text">Prism Koirala</h1>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-purple-600 transition">Home</a>
+                    <a href="#experience" class="nav-link text-gray-700 hover:text-purple-600 transition">Experience</a>
+                    <a href="#education" class="nav-link text-gray-700 hover:text-purple-600 transition">Education</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600 transition">Contact</a>
+                    <a href="#" onclick="downloadResume()" class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-4 py-2 rounded-lg hover:shadow-lg transition">Download CV</a>
+                </div>
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="#home" class="block text-gray-700 hover:text-purple-600 py-2">Home</a>
+                <a href="#experience" class="block text-gray-700 hover:text-purple-600 py-2">Experience</a>
+                <a href="#education" class="block text-gray-700 hover:text-purple-600 py-2">Education</a>
+                <a href="#contact" class="block text-gray-700 hover:text-purple-600 py-2">Contact</a>
+                <a href="#" onclick="downloadResume()" class="block bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-4 py-2 rounded-lg text-center">Download CV</a>
+            </div>
+        </div>
+    </nav>
 
-<body>
-  <div id="app">
-    <div id="loading-bg">
-      <div class="loading-logo">
-        <img src="/logo.png" alt="Logo" />
-      </div>
-      <div class="loading">
-        <div class="effect-1 effects"></div>
-        <div class="effect-2 effects"></div>
-        <div class="effect-3 effects"></div>
-      </div>
-    </div>
-  </div>
-  
-  <script>
-    const loaderColor = localStorage.getItem('Vuexy-initial-loader-bg') || '#FFFFFF'
-    const primaryColor = localStorage.getItem('Vuexy-initial-loader-color') || '#7367F0'
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-indigo-50 pt-20">
+        <div class="max-w-6xl mx-auto px-4 py-20">
+            <div class="flex flex-col md:flex-row items-center gap-12 mb-8">
+                <!-- Profile Image -->
+                <div class="w-full md:w-1/3 flex justify-center">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                        <img id="profile-pic" src="pp.jpg" alt="Prism Koirala" class="relative w-64 h-64 md:w-72 md:h-72 rounded-full object-cover border-4 border-white shadow-xl">
+                    </div>
+                </div>
+                
+                <!-- Hero Text -->
+                <div class="w-full md:w-2/3 text-center md:text-left">
+                    <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 gradient-text">Prism Koirala</h2>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-6">Full Stack Developer & GIS Specialist</p>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Energetic and ambitious developer with 6+ years of experience building robust web applications using React, Django, Vue.js, and modern technologies. Passionate about creating scalable solutions and leading teams to excellence.
+                    </p>
+                    <div class="flex flex-wrap gap-3 justify-center md:justify-start mb-8">
+                        <span class="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm">Python</span>
+                        <span class="bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full text-sm">Django</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm">Vue.js</span>
+                        <span class="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm">TypeScript</span>
+                        <span class="bg-pink-100 text-pink-700 px-4 py-2 rounded-full text-sm">RESTful API</span>
+                        <span class="bg-yellow-100 text-yellow-700 px-4 py-2 rounded-full text-sm">GIS</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                        <a href="#contact" class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-3 rounded-lg hover:shadow-xl transition transform hover:-translate-y-1">Get In Touch</a>
+                        <a href="#experience" class="border-2 border-purple-600 text-purple-600 px-8 py-3 rounded-lg hover:bg-purple-50 transition">View Work</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    if (loaderColor)
-      document.documentElement.style.setProperty('--initial-loader-bg', loaderColor)
-    if (primaryColor)
-      document.documentElement.style.setProperty('--initial-loader-color', primaryColor)
+    <!-- Experience Section -->
+    <section id="experience" class="min-h-screen py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 gradient-text">Experience</h2>
+            <p class="text-center text-gray-600 mb-12">My professional journey</p>
+            
+            <div class="space-y-8">
+                <!-- Current Role -->
+                <div class="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                        <h3 class="text-2xl font-bold text-gray-800">Full Stack Developer</h3>
+                        <span class="text-purple-600 font-semibold">Apr 2023 - Present</span>
+                    </div>
+                    <p class="text-lg text-gray-700 mb-2">Device42 & Inspectiv.io</p>
+                    <p class="text-gray-600">Working on enterprise web applications based in the United States. Migrating legacy projects to modern Vue.js and Django integration, implementing vulnerability detection platforms using TypeScript, Vue.js, Django, and DevOps practices.</p>
+                </div>
 
-  </script>
+                <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                        <h3 class="text-2xl font-bold text-gray-800">Freelance Developer</h3>
+                        <span class="text-purple-600 font-semibold">2022 - 2023</span>
+                    </div>
+                    <p class="text-lg text-gray-700 mb-2">Upwork</p>
+                    <p class="text-gray-600">Successfully completed multiple projects including e-signature implementation for BoardDirector web application and various full-stack development projects for international clients.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                        <h3 class="text-2xl font-bold text-gray-800">Full Stack Developer & GIS Specialist</h3>
+                        <span class="text-purple-600 font-semibold">2021 - 2022</span>
+                    </div>
+                    <p class="text-lg text-gray-700 mb-2">Pathway Technologies & Services</p>
+                    <p class="text-gray-600">Led development of government systems including National Seed Subsidy System, Agricultural Pest Database, and NRA Portal using Django, Vue.js, and GIS technologies.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                        <h3 class="text-2xl font-bold text-gray-800">Python Developer</h3>
+                        <span class="text-purple-600 font-semibold">2020 - 2021</span>
+                    </div>
+                    <p class="text-lg text-gray-700 mb-2">Crystal Solution, Birtamode</p>
+                    <p class="text-gray-600">Developed Python-based solutions and gained foundational experience in full-stack development.</p>
+                </div>
+            </div>
+
+            <!-- Projects Highlight -->
+            <div class="mt-16">
+                <h3 class="text-3xl font-bold text-center mb-8 text-gray-800">Notable Projects</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white border-2 border-purple-100 rounded-xl p-6 hover:border-purple-300 transition">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">National Seed Subsidy System</h4>
+                        <p class="text-gray-600 mb-3">Government agricultural system handling seed subsidies nationwide</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded text-sm">Django</span>
+                            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded text-sm">Vue.js</span>
+                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded text-sm">RESTful API</span>
+                        </div>
+                    </div>
+                    <div class="bg-white border-2 border-purple-100 rounded-xl p-6 hover:border-purple-300 transition">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">APM Construction ERP</h4>
+                        <p class="text-gray-600 mb-3">Comprehensive ERP system for construction management</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded text-sm">Django</span>
+                            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded text-sm">Vue.js (TS)</span>
+                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded text-sm">RESTful API</span>
+                        </div>
+                    </div>
+                    <div class="bg-white border-2 border-purple-100 rounded-xl p-6 hover:border-purple-300 transition">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Inspectiv.io Platform</h4>
+                        <p class="text-gray-600 mb-3">Vulnerability detection platform for cybersecurity</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded text-sm">TypeScript</span>
+                            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded text-sm">Vue.js</span>
+                            <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded text-sm">DevOps</span>
+                        </div>
+                    </div>
+                    <div class="bg-white border-2 border-purple-100 rounded-xl p-6 hover:border-purple-300 transition">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">10+ GitHub Projects</h4>
+                        <p class="text-gray-600 mb-3">Open source contributions and personal projects</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded text-sm">Django</span>
+                            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded text-sm">React</span>
+                            <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded text-sm">GraphQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="min-h-screen py-20 bg-gradient-to-br from-purple-50 to-indigo-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 gradient-text">Education</h2>
+            <p class="text-center text-gray-600 mb-12">Academic background and achievements</p>
+
+            <div class="space-y-6 max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+                    <div class="flex items-start justify-between mb-3">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800">Data Science</h3>
+                            <p class="text-lg text-purple-600">Mathematics, Business Analytics & Computer Programming</p>
+                        </div>
+                        <span class="text-gray-600 font-semibold">2023 - 2025</span>
+                    </div>
+                    <p class="text-gray-700 mb-2">Webster University, United States of America</p>
+                    <p class="text-gray-600">GPA 3.1</p>
+            </div>
+            
+            <div class="space-y-6 max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+                    <div class="flex items-start justify-between mb-3">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800">Bachelor of Computer Applications</h3>
+                            <p class="text-lg text-purple-600">Cloud Technology & Mobile Application</p>
+                        </div>
+                        <span class="text-gray-600 font-semibold">2017 - 2020</span>
+                    </div>
+                    <p class="text-gray-700 mb-2">Jain University, Bangalore</p>
+                    <p class="text-gray-600">CGPA: 6.4/10</p>
+                </div>
+
+
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+                    <div class="flex items-start justify-between mb-3">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800">Matriculation</h3>
+                            <p class="text-lg text-purple-600">Mathematics, Physics, Biology, Chemistry</p>
+                        </div>
+                        <span class="text-gray-600 font-semibold">2013 - 2015</span>
+                    </div>
+                    <p class="text-gray-700 mb-2">All India Senior School Certificate Examination (AISSCE)</p>
+                    <p class="text-gray-600">CGPA: 8/10</p>
+                </div>
+            </div>
+
+            <!-- Achievements -->
+            <div class="mt-16 max-w-4xl mx-auto">
+                <h3 class="text-3xl font-bold text-center mb-8 text-gray-800">Achievements & Activities</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <h4 class="text-xl font-bold text-purple-600 mb-2">🏆 Best Presentation Award</h4>
+                        <p class="text-gray-600">Studentrepreneur Event, Jain University (2018)</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <h4 class="text-xl font-bold text-purple-600 mb-2">👨‍💼 Head of IT & Logistics</h4>
+                        <p class="text-gray-600">Model United Nations, Modern Indian School (2016)</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <h4 class="text-xl font-bold text-purple-600 mb-2">⚽ Football Tournament Winner</h4>
+                        <p class="text-gray-600">Inter-house Competition, Modern Indian School (2016)</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <h4 class="text-xl font-bold text-purple-600 mb-2">📚 Cisco Packet Tracer</h4>
+                        <p class="text-gray-600">Workshop at Jain University, Bangalore (2017)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="min-h-screen flex items-center justify-center py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Let's Connect</h2>
+            <p class="text-xl text-gray-600 mb-12">Interested in working together? Get in touch!</p>
+            
+            <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8 shadow-xl">
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <div class="text-purple-600 text-3xl mb-3">📧</div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Email</h3>
+                        <a href="mailto:PRISMCO.BIZ@GMAIL.COM" class="text-purple-600 hover:underline">PRISMCO.BIZ@GMAIL.COM</a>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <div class="text-purple-600 text-3xl mb-3">📱</div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Phone</h3>
+                        <a href="tel:9818195512" class="text-purple-600 hover:underline">+977 9818195512</a>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <div class="text-purple-600 text-3xl mb-3">📍</div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Location</h3>
+                        <p class="text-gray-600">Birtamode, Jhapa, Nepal</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <div class="text-purple-600 text-3xl mb-3">🌐</div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Languages</h3>
+                        <p class="text-gray-600">English, Hindi, Nepali</p>
+                    </div>
+                </div>
+                
+                <div class="pt-6 border-t border-purple-200">
+                    <p class="text-gray-600 mb-4">Available for freelance opportunities and full-time positions</p>
+                    <a href="mailto:PRISMCO.BIZ@GMAIL.COM" class="inline-block bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-3 rounded-lg hover:shadow-xl transition transform hover:-translate-y-1">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-gray-400">© 2026 prismco. All rights reserved.</p>
+            <p class="text-gray-500 text-sm mt-2">Built with passion and dedication</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Download resume function
+        function downloadResume() {
+            // Create CSV content
+            const csvContent = `Prism Koirala - Resume
+
+Personal Information
+Name,Prism Koirala
+Email,PRISMCO.BIZ@GMAIL.COM
+Phone,9818195512
+Location,"Nakkhu, Lalitpur, Nepal"
+Date of Birth,1st December 1998
+Languages,"English, Hindi, Nepali"
+
+Professional Summary
+"Energetic and ambitious Full Stack Developer with 4+ years of experience in building robust web applications using Django, Vue.js, and modern technologies. Proven track record in leading development teams and delivering government and enterprise-level systems."
+
+Work Experience
+Role,Company,Duration
+"Full Stack Developer","Device42 & Inspectiv.io","Apr 2023 - Present"
+"Freelance Developer","Upwork","2022 - 2023"
+"Full Stack Developer & GIS Specialist","Pathway Technologies & Services","2021 - 2022"
+"Python Developer","Crystal Solution","2020 - 2021"
+
+Education
+Degree,Institution,Year,Score
+"BCA (Cloud Technology & Mobile Application)","Jain University, Bangalore","2017-2020","6.4/10"
+"Intermediate (Science)","CBSE","2015-2016","79%"
+"Matriculation","AISSCE","2013-2015","8/10"
+
+Technical Skills
+"Python, JavaScript (TypeScript), C++, C, Java"
+"Django, Vue.js, React, RESTful API, GraphQL"
+"PostgreSQL, MySQL, SQLite"
+"HTML5, CSS3, Tailwind CSS"
+"GIS Development, AWS, DevOps"
+
+Notable Projects
+"National Seed Subsidy System (subsidy.sqcc.gov.np)"
+"National Agricultural Pest Database System (napds.pathway.com.np)"
+"APM Construction ERP System (attendportal.github.io)"
+"Inspectiv.io - Vulnerability Detection Platform"
+"Device42 - Enterprise Web Application"
+"10+ GitHub Open Source Projects"
+
+Achievements
+"Best Presentation Award - Studentrepreneur Event, Jain University (2018)"
+"Head of IT & Logistics - Model United Nations (2016)"
+"Football Tournament Winner - Modern Indian School (2016)"
+"Cisco Packet Tracer Workshop - Jain University (2017)"
+`;
+
+            // Create blob and download
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Prism_Koirala_Resume.csv';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        }
+    </script>
 </body>
-
 </html>
