@@ -3,513 +3,508 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prism Koirala — Full Stack Web Developer</title>
-    <meta name="description" content="Prism Koirala — Full Stack Web Developer. Python, Django, React, Vue.js, AWS.">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Prism Koirala — Full-Stack Web Developer</title>
+    <meta name="description" content="Prism Koirala is a full-stack web developer in Birtamode, Jhapa. Django, React, Vue, Python, and the systems around them.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Fraunces', 'serif'],
-                    },
-                    colors: {
-                        cream: '#faf9f6',
-                        paper: '#ffffff',
-                        navy: '#101828',
-                        slate2: '#475467',
-                        mist: '#eaecf0',
-                        accent: '#155e75',
-                        accentlight: '#e0f2f7',
-                        gold: '#b45309',
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #f3efe8;
+            --ink: #1c1916;
+            --muted: #5e574f;
+            --faint: #8a8178;
+            --line: #ddd4c8;
+            --accent: #7a3428;
+            --accent-soft: #f0e4dc;
+        }
+
+        * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
-        .display-tight { letter-spacing: -0.02em; }
-
-        /* Card */
-        .card {
-            background: #ffffff;
-            border: 1px solid #eaecf0;
-            transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
-        }
-        .card:hover {
-            box-shadow: 0 20px 45px -18px rgba(16, 24, 40, 0.14);
-            transform: translateY(-3px);
-            border-color: #d5dae2;
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: "Source Sans 3", "Segoe UI", sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.6;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Nav link */
-        .nav-link {
+        img { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+        ::selection { background: #e6d2c6; }
+
+        .wrap {
+            width: min(1080px, calc(100% - 2.5rem));
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(243, 239, 232, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line);
+        }
+        .bar {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            min-height: 4.25rem;
+        }
+        .mark {
+            font-family: "Instrument Serif", Georgia, serif;
+            font-size: 1.35rem;
+            letter-spacing: -0.02em;
+            margin-right: auto;
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 1.35rem;
+            font-size: 0.95rem;
+            color: var(--muted);
+        }
+        .nav a:hover { color: var(--ink); }
+        .cv-link {
+            color: var(--ink);
+            border-bottom: 1px solid var(--ink);
+            padding-bottom: 1px;
+            margin-left: 0.4rem;
+            font-weight: 500;
+        }
+        .cv-link:hover { color: var(--accent); border-color: var(--accent); }
+        .menu-btn {
+            display: none;
+            background: none;
+            border: 0;
+            padding: 0.4rem;
+            color: var(--ink);
+            cursor: pointer;
+        }
+        .menu-btn svg { display: block; }
+        #mobile-nav {
+            display: none;
+            border-top: 1px solid var(--line);
+            padding: 0.4rem 0 1rem;
+        }
+        #mobile-nav a {
+            display: block;
+            padding: 0.55rem 0;
+            color: var(--muted);
+        }
+        #mobile-nav.open { display: block; }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 3.5rem;
+            align-items: end;
+            padding: 4.5rem 0 3.5rem;
+        }
+        .place {
+            margin: 0 0 0.85rem;
+            color: var(--accent);
+            font-family: "Instrument Serif", Georgia, serif;
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+        h1 {
+            margin: 0;
+            font-family: "Instrument Serif", Georgia, serif;
+            font-weight: 400;
+            font-size: clamp(3.4rem, 7vw, 5.6rem);
+            line-height: 0.92;
+            letter-spacing: -0.03em;
+        }
+        .lede {
+            margin: 1.6rem 0 0;
+            max-width: 38rem;
+            color: var(--muted);
+            font-size: 1.125rem;
+            line-height: 1.65;
+        }
+        .lede + .lede { margin-top: 0.85rem; }
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem 0.9rem;
+            margin-top: 1.6rem;
+            font-size: 0.98rem;
+        }
+        .meta a { border-bottom: 1px solid transparent; }
+        .meta a:hover { color: var(--accent); border-color: var(--accent); }
+        .dot { color: var(--faint); }
+
+        .portrait {
+            width: 100%;
+            height: 460px;
+            object-fit: cover;
+            object-position: 18% 78%;
+            border: 1px solid var(--line);
+            background: #ddd6cc;
+        }
+
+        /* Sections */
+        section { scroll-margin-top: 5rem; }
+        .block {
+            display: grid;
+            grid-template-columns: 9.5rem 1fr;
+            gap: 1.5rem 2rem;
+            padding: 3.25rem 0;
+            border-top: 1px solid var(--line);
+        }
+        .label {
+            margin: 0.15rem 0 0;
+            font-family: "Instrument Serif", Georgia, serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        /* Experience */
+        .job + .job {
+            margin-top: 2.4rem;
+            padding-top: 2.4rem;
+            border-top: 1px solid var(--line);
+        }
+        .job-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1.5rem;
+        }
+        h2, h3 { font-weight: 400; }
+        .job h3, .project h3, .school h3 {
+            margin: 0;
+            font-family: "Instrument Serif", Georgia, serif;
+            font-size: 1.65rem;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+        .org {
+            margin: 0.25rem 0 0;
+            color: var(--muted);
+        }
+        time, .cred {
+            color: var(--faint);
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+        .job ul, .project p, .school p { margin: 0.9rem 0 0; }
+        .job ul {
+            padding: 0;
+            list-style: none;
+            color: var(--muted);
+        }
+        .job li {
             position: relative;
-            transition: color 0.25s ease;
+            padding-left: 1rem;
+            margin: 0.35rem 0;
         }
-        .nav-link::after {
-            content: '';
+        .job li::before {
+            content: "";
             position: absolute;
-            width: 0; height: 1.5px;
-            bottom: -4px; left: 0;
-            background: #155e75;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after { width: 100%; }
-
-        /* Section eyebrow */
-        .eyebrow {
-            letter-spacing: 0.18em;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: #155e75;
-        }
-
-        /* Scroll reveal */
-        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        /* Divider rule with dot */
-        .rule {
-            display: flex; align-items: center; gap: 12px;
-        }
-        .rule::after {
-            content: '';
-            flex: 1;
+            left: 0;
+            top: 0.72em;
+            width: 0.4rem;
             height: 1px;
-            background: #eaecf0;
+            background: var(--faint);
+        }
+        .note {
+            margin: 0.85rem 0 0;
+            color: var(--muted);
         }
 
-        /* Skill tag */
-        .tag {
-            background: #f4f6f8;
-            border: 1px solid #eaecf0;
-            color: #344054;
-            transition: all 0.25s ease;
+        /* Projects */
+        .project + .project {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--line);
         }
-        .tag:hover { border-color: #155e75; color: #155e75; background: #e0f2f7; }
+        .project p { color: var(--muted); max-width: 42rem; }
+        .stack {
+            margin-top: 0.7rem !important;
+            color: var(--faint) !important;
+            font-size: 0.95rem;
+        }
 
-        /* Timeline */
-        .tl-line { background: linear-gradient(#155e75 0%, #eaecf0 100%); }
+        /* Skills */
+        .skills {
+            display: grid;
+            grid-template-columns: 8.5rem 1fr;
+            gap: 0.7rem 1.25rem;
+            margin: 0;
+        }
+        .skills dt {
+            margin: 0;
+            color: var(--ink);
+            font-weight: 500;
+        }
+        .skills dd {
+            margin: 0;
+            color: var(--muted);
+        }
 
-        ::selection { background: #d1ecf3; }
+        /* Education */
+        .school + .school { margin-top: 1.6rem; }
+        .school p { color: var(--muted); }
+
+        /* Contact */
+        .contact-list {
+            display: grid;
+            gap: 0.35rem;
+            margin: 0;
+        }
+        .contact-list a:hover { color: var(--accent); }
+        .contact-list span { color: var(--muted); }
+
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 1.4rem 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            color: var(--faint);
+            font-size: 0.95rem;
+        }
+        footer a:hover { color: var(--accent); }
+
+        @media (max-width: 860px) {
+            .nav { display: none; }
+            .menu-btn { display: block; }
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 1.75rem;
+                padding-top: 2.5rem;
+            }
+            .portrait { height: 320px; order: -1; object-position: 22% 70%; }
+            .block { grid-template-columns: 1fr; gap: 0.8rem; padding: 2.4rem 0; }
+            .job-head { flex-direction: column; gap: 0.15rem; }
+            time, .cred { white-space: normal; }
+            .skills { grid-template-columns: 1fr; gap: 0.15rem 0; }
+            .skills dt { margin-top: 0.8rem; }
+            footer { flex-direction: column; }
+        }
     </style>
 </head>
-<body class="bg-cream text-navy font-sans antialiased">
-
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-cream/90 backdrop-blur-md border-b border-mist">
-        <div class="max-w-6xl mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <a href="#home" class="font-display text-xl font-semibold display-tight">Prism Koirala</a>
-                <div class="hidden md:flex space-x-9 items-center text-sm font-medium text-slate2">
-                    <a href="#about" class="nav-link hover:text-navy">About</a>
-                    <a href="#experience" class="nav-link hover:text-navy">Experience</a>
-                    <a href="#projects" class="nav-link hover:text-navy">Projects</a>
-                    <a href="#education" class="nav-link hover:text-navy">Education</a>
-                    <a href="#contact" class="nav-link hover:text-navy">Contact</a>
-                    <a href="prism_resume.pdf" download="prism_resume.pdf" class="bg-navy text-white px-5 py-2.5 rounded-full hover:bg-accent transition">Download CV</a>
-                </div>
-                <button id="mobile-menu-btn" class="md:hidden text-navy">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-1 pb-3 text-sm font-medium text-slate2">
-                <a href="#about" class="block py-2 hover:text-accent">About</a>
-                <a href="#experience" class="block py-2 hover:text-accent">Experience</a>
-                <a href="#projects" class="block py-2 hover:text-accent">Projects</a>
-                <a href="#education" class="block py-2 hover:text-accent">Education</a>
-                <a href="#contact" class="block py-2 hover:text-accent">Contact</a>
-                <a href="prism_resume.pdf" download="prism_resume.pdf" class="block bg-navy text-white px-5 py-2.5 rounded-full text-center mt-2">Download CV</a>
-            </div>
+<body>
+    <header>
+        <div class="wrap bar">
+            <a href="#top" class="mark">Prism Koirala</a>
+            <nav class="nav">
+                <a href="#about">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+                <a class="cv-link" href="prism_resume.pdf" download="Prism-Koirala-CV.pdf">Download CV</a>
+            </nav>
+            <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <path d="M4 7h16M4 12h16M4 17h16"/>
+                </svg>
+            </button>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="pt-36 pb-24">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-5 gap-14 items-center">
-                <div class="md:col-span-3">
-                    <p class="eyebrow mb-5">Full Stack Web Developer</p>
-                    <h1 class="font-display display-tight text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] mb-7">
-                        Building reliable software with clarity&nbsp;and&nbsp;<span class="italic text-accent">care.</span>
-                    </h1>
-                    <p class="text-lg text-slate2 leading-relaxed max-w-xl mb-10">
-                        I'm Prism — a self-motivated, results-oriented developer with a proven ability to
-                        troubleshoot and deliver creative, innovative solutions in agile environments.
-                        I keep a clear focus on bottom-line results while ensuring customers stay satisfied.
-                    </p>
-                    <div class="flex flex-wrap items-center gap-4">
-                        <a href="#contact" class="bg-navy text-white px-7 py-3.5 rounded-full font-medium hover:bg-accent transition">Get in Touch</a>
-                        <a href="#projects" class="text-navy font-medium px-7 py-3.5 rounded-full border border-navy/20 hover:border-navy transition">View Projects</a>
-                    </div>
-                    <div class="flex items-center gap-6 mt-10 text-sm text-slate2">
-                        <a href="https://github.com/prismkoirala" target="_blank" class="flex items-center gap-2 hover:text-accent transition">
-                            <svg class="w-4.5 h-4.5 w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                            GitHub
-                        </a>
-                        <a href="https://www.prismkoirala.com" target="_blank" class="flex items-center gap-2 hover:text-accent transition">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zM3.6 9h16.8M3.6 15h16.8M12 3a15 15 0 010 18"/></svg>
-                            prismkoirala.com
-                        </a>
-                        <span class="hidden sm:flex items-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
-                            Birtamode, Jhapa, Nepal
-                        </span>
-                    </div>
-                </div>
-
-                <div class="md:col-span-2 flex justify-center md:justify-end">
-                    <div class="relative">
-                        <div class="absolute -inset-3 rounded-[2rem] border border-accent/25 rotate-3"></div>
-                        <img src="pp.jpg" alt="Prism Koirala" class="relative w-64 h-72 md:w-72 md:h-80 rounded-[2rem] object-cover shadow-xl">
-                    </div>
-                </div>
-            </div>
+        <div class="wrap" id="mobile-nav">
+            <a href="#about">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+            <a href="prism_resume.pdf" download="Prism-Koirala-CV.pdf">Download CV</a>
         </div>
-    </section>
+    </header>
 
-    <!-- About / Skills Section -->
-    <section id="about" class="py-24 bg-paper border-y border-mist">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-14 items-start">
-                <div class="reveal">
-                    <p class="eyebrow mb-4">About</p>
-                    <h2 class="font-display display-tight text-4xl md:text-5xl font-semibold mb-6">A pragmatic engineer, end to end.</h2>
-                    <p class="text-slate2 leading-relaxed mb-5">
-                        Over five years of experience designing and shipping web applications — from government-scale
-                        agricultural platforms in Nepal to enterprise infrastructure tooling used worldwide.
-                    </p>
-                    <p class="text-slate2 leading-relaxed">
-                        Equipped to work collaboratively with like-minded team members, I manage change by resolving
-                        problems early and addressing client needs expertly — providing optimal results for
-                        user-focused applications.
-                    </p>
-                </div>
-                <div class="reveal">
-                    <h3 class="rule text-sm font-semibold uppercase tracking-widest text-slate2 mb-6">Technical Skills</h3>
-                    <div class="mb-7">
-                        <p class="text-sm font-semibold mb-3">Languages &amp; Frameworks</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">Python</span>
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">Django</span>
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">JavaScript</span>
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">React.js</span>
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">Vue.js</span>
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">jQuery</span>
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">HTML5</span>
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">CSS3</span>
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">Pandas</span>
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">Graphene</span>
-                        </div>
-                    </div>
-                    <div class="mb-7">
-                        <p class="text-sm font-semibold mb-3">Databases &amp; APIs</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">PostgreSQL</span>
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">MySQL</span>
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">MongoDB</span>
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">Mongoose</span>
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">GraphQL</span>
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">RESTful APIs</span>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-sm font-semibold mb-3">Cloud &amp; Tooling</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">AWS</span>
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">Azure</span>
-                            <span class="tag px-3.5 py-1.5 rounded-full text-sm">Git</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-24">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="reveal mb-16 max-w-2xl">
-                <p class="eyebrow mb-4">Experience</p>
-                <h2 class="font-display display-tight text-4xl md:text-5xl font-semibold">Professional journey</h2>
-            </div>
-
-            <div class="relative">
-                <div class="tl-line absolute left-0 md:left-1/2 top-0 bottom-0 w-px"></div>
-
-                <!-- Go Local Nepal -->
-                <div class="relative reveal md:grid md:grid-cols-2 md:gap-14 mb-14 pl-8 md:pl-0">
-                    <span class="absolute left-0 md:left-1/2 top-1.5 -translate-x-1/2 w-3 h-3 rounded-full bg-accent ring-4 ring-accentlight"></span>
-                    <div class="md:text-right md:pr-14">
-                        <p class="text-sm font-semibold text-accent mb-1">Jan 2026 — Present</p>
-                        <h3 class="font-display text-2xl font-semibold display-tight">Full Stack Software Developer</h3>
-                        <p class="text-slate2 italic">Go Local Nepal Pvt. Ltd. · Kathmandu, Nepal</p>
-                    </div>
-                    <div class="md:pl-14 mt-3 md:mt-0">
-                        <ul class="space-y-2.5 text-slate2 leading-relaxed">
-                            <li>Worked as a team in creating mobile apps for cooperative Agriculture MS.</li>
-                            <li>Designed backend architecture for numerous projects digitalizing farms and agriculture.</li>
-                            <li>Technologies: Django, React, React Native, Python, Docker, Redis.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Freelance -->
-                <div class="relative reveal md:grid md:grid-cols-2 md:gap-14 mb-14 pl-8 md:pl-0">
-                    <span class="absolute left-0 md:left-1/2 top-1.5 -translate-x-1/2 w-3 h-3 rounded-full bg-white border-2 border-accent"></span>
-                    <div class="md:text-right md:pr-14">
-                        <p class="text-sm font-semibold text-accent mb-1">Oct 2022 — Dec 2023</p>
-                        <h3 class="font-display text-2xl font-semibold display-tight">Freelance Full Stack Developer</h3>
-                        <p class="text-slate2 italic">Independent · Remote</p>
-                    </div>
-                    <div class="md:pl-14 mt-3 md:mt-0">
-                        <ul class="space-y-2.5 text-slate2 leading-relaxed">
-                            <li>End-to-end application development across multiple projects — responsible for maintenance, debugging, and efficiency gains through code rebuilds.</li>
-                            <li>Led multiple real-time web applications using Python/Django and React.js for medical, CRM, and commerce clients.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Pathway -->
-                <div class="relative reveal md:grid md:grid-cols-2 md:gap-14 mb-14 pl-8 md:pl-0">
-                    <span class="absolute left-0 md:left-1/2 top-1.5 -translate-x-1/2 w-3 h-3 rounded-full bg-white border-2 border-accent"></span>
-                    <div class="md:text-right md:pr-14">
-                        <p class="text-sm font-semibold text-accent mb-1">Jul 2021 — Oct 2022</p>
-                        <h3 class="font-display text-2xl font-semibold display-tight">Sr. Full Stack Web Developer</h3>
-                        <p class="text-slate2 italic">Pathway Technologies &amp; Services · Kathmandu, Nepal</p>
-                    </div>
-                    <div class="md:pl-14 mt-3 md:mt-0">
-                        <ul class="space-y-2.5 text-slate2 leading-relaxed">
-                            <li>Maintained web applications using Python frameworks such as Django and Flask, building responsive front-end interfaces with React and Vue.js.</li>
-                            <li>Created RESTful API services for seamless integration with React Native apps.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- TGL Nepal -->
-                <div class="relative reveal md:grid md:grid-cols-2 md:gap-14 pl-8 md:pl-0">
-                    <span class="absolute left-0 md:left-1/2 top-1.5 -translate-x-1/2 w-3 h-3 rounded-full bg-white border-2 border-accent"></span>
-                    <div class="md:text-right md:pr-14">
-                        <p class="text-sm font-semibold text-accent mb-1">Jul 2020 — Jul 2021</p>
-                        <h3 class="font-display text-2xl font-semibold display-tight">Full Stack Python/JS Developer</h3>
-                        <p class="text-slate2 italic">TGL Nepal Pvt. Ltd. · Kathmandu, Nepal</p>
-                    </div>
-                    <div class="md:pl-14 mt-3 md:mt-0">
-                        <ul class="space-y-2.5 text-slate2 leading-relaxed">
-                            <li>Integrated third-party APIs and services, enhancing application functionality.</li>
-                            <li>Worked closely with cross-functional teams to understand project requirements and deliver solutions on time.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-24 bg-navy text-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="reveal mb-16 max-w-2xl">
-                <p class="eyebrow mb-4" style="color:#7dd3fc;">Selected Work</p>
-                <h2 class="font-display display-tight text-4xl md:text-5xl font-semibold">Notable projects</h2>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Device42 -->
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/10 transition">
-                    <p class="text-xs font-semibold tracking-widest uppercase text-sky-300 mb-4">Enterprise Platform</p>
-                    <h4 class="font-display text-xl font-semibold mb-3">Device42</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-5">Integrated DCIM, CMDB, ITAM, and reporting in a single platform. Oversaw project development and timeline, database business logic, and API view logic and data structuring.</p>
-                    <p class="text-xs text-slate-400">Django · PostgreSQL · RESTful APIs · AWS Workspaces</p>
-                </div>
-
-                <!-- Digital QR Menu -->
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/10 transition">
-                    <p class="text-xs font-semibold tracking-widest uppercase text-sky-300 mb-4">Product</p>
-                    <h4 class="font-display text-xl font-semibold mb-3">Digital QR Menu</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-5">Digital QR menu serving 10+ restaurants across Nepal. Assessed market demand and addressed the real-time ordering problem for hospitality businesses.</p>
-                    <p class="text-xs text-slate-400">Django · React · Next.js · PostgreSQL</p>
-                </div>
-
-                <!-- US Case Tracker -->
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/10 transition">
-                    <p class="text-xs font-semibold tracking-widest uppercase text-sky-300 mb-4">Mobile App</p>
-                    <h4 class="font-display text-xl font-semibold mb-3">US Case Tracker App</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-5">Integrated US federal-level JSON data into a mobile app for tracking USCIS cases — built backend scripts to structure raw data and deliver it to users for tracking.</p>
-                    <p class="text-xs text-slate-400">Django · React Native · RESTful APIs</p>
-                </div>
-
-                <!-- National Seed Subsidy System -->
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/10 transition">
-                    <p class="text-xs font-semibold tracking-widest uppercase text-sky-300 mb-4">Government</p>
-                    <h4 class="font-display text-xl font-semibold mb-3">National Seed Subsidy System</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-5">Government agricultural system handling seed subsidies nationwide.</p>
-                    <p class="text-xs text-slate-400">Django · Vue.js · RESTful API</p>
-                </div>
-
-                <!-- APM Construction ERP -->
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/10 transition">
-                    <p class="text-xs font-semibold tracking-widest uppercase text-sky-300 mb-4">ERP</p>
-                    <h4 class="font-display text-xl font-semibold mb-3">APM Construction ERP</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-5">Comprehensive ERP system for construction management.</p>
-                    <p class="text-xs text-slate-400">Django · Vue.js (TypeScript) · RESTful API</p>
-                </div>
-
-                <!-- Inspectiv -->
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/10 transition">
-                    <p class="text-xs font-semibold tracking-widest uppercase text-sky-300 mb-4">Security</p>
-                    <h4 class="font-display text-xl font-semibold mb-3">Inspectiv.io Platform</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-5">Vulnerability detection platform for cybersecurity.</p>
-                    <p class="text-xs text-slate-400">TypeScript · Vue.js · DevOps</p>
-                </div>
-            </div>
-
-            <div class="reveal mt-10 flex flex-col sm:flex-row items-center justify-between gap-5 bg-white/5 border border-white/10 rounded-2xl p-7">
-                <div>
-                    <h4 class="font-display text-xl font-semibold mb-1">Open source &amp; personal projects</h4>
-                    <p class="text-slate-300 text-sm">10+ repositories spanning Django, React, and GraphQL.</p>
-                </div>
-                <a href="https://github.com/prismkoirala" target="_blank" class="bg-white text-navy font-medium px-6 py-3 rounded-full hover:bg-sky-100 transition whitespace-nowrap">Visit GitHub</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="py-24">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="reveal mb-16 max-w-2xl">
-                <p class="eyebrow mb-4">Education</p>
-                <h2 class="font-display display-tight text-4xl md:text-5xl font-semibold">Academic background</h2>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6 mb-20">
-                <div class="card rounded-2xl p-7 reveal">
-                    <p class="text-sm font-semibold text-accent mb-3">Dec 2023 — Dec 2025</p>
-                    <h3 class="font-display text-xl font-semibold display-tight mb-2">Masters in Data Analytics</h3>
-                    <p class="text-slate2 mb-4">Webster University<br>St. Louis, MO, USA</p>
-                    <span class="inline-block text-xs font-semibold bg-accentlight text-accent px-3 py-1.5 rounded-full">25 points</span>
-                </div>
-                <div class="card rounded-2xl p-7 reveal">
-                    <p class="text-sm font-semibold text-accent mb-3">2017 — 2020</p>
-                    <h3 class="font-display text-xl font-semibold display-tight mb-2">Bachelors in Computer Science</h3>
-                    <p class="text-slate2 mb-4">JAIN University<br>Bangalore, India</p>
-                    <span class="inline-block text-xs font-semibold bg-accentlight text-accent px-3 py-1.5 rounded-full">3.0 GPA</span>
-                </div>
-                <div class="card rounded-2xl p-7 reveal">
-                    <p class="text-sm font-semibold text-accent mb-3">2015 — 2017</p>
-                    <h3 class="font-display text-xl font-semibold display-tight mb-2">Higher Secondary Education</h3>
-                    <p class="text-slate2 mb-4">Modern Indian School</p>
-                    <span class="inline-block text-xs font-semibold bg-accentlight text-accent px-3 py-1.5 rounded-full">Score: 79%</span>
-                </div>
-            </div>
-
-            <!-- Achievements -->
-            <div class="reveal">
-                <h3 class="rule text-sm font-semibold uppercase tracking-widest text-slate2 mb-8">Achievements &amp; Activities</h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="card rounded-2xl p-6 flex gap-4 items-start">
-                        <span class="text-2xl">🏆</span>
-                        <div>
-                            <h4 class="font-semibold mb-1">Best Presentation Award</h4>
-                            <p class="text-slate2 text-sm">Studentrepreneur Event, Jain University (2018)</p>
-                        </div>
-                    </div>
-                    <div class="card rounded-2xl p-6 flex gap-4 items-start">
-                        <span class="text-2xl">👨‍💼</span>
-                        <div>
-                            <h4 class="font-semibold mb-1">Head of IT &amp; Logistics</h4>
-                            <p class="text-slate2 text-sm">Model United Nations, Modern Indian School (2016)</p>
-                        </div>
-                    </div>
-                    <div class="card rounded-2xl p-6 flex gap-4 items-start">
-                        <span class="text-2xl">⚽</span>
-                        <div>
-                            <h4 class="font-semibold mb-1">Football Tournament Winner</h4>
-                            <p class="text-slate2 text-sm">Inter-house Competition, Modern Indian School (2016)</p>
-                        </div>
-                    </div>
-                    <div class="card rounded-2xl p-6 flex gap-4 items-start">
-                        <span class="text-2xl">📚</span>
-                        <div>
-                            <h4 class="font-semibold mb-1">Cisco Packet Tracer</h4>
-                            <p class="text-slate2 text-sm">Workshop at Jain University, Bangalore (2017)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-paper border-t border-mist">
-        <div class="max-w-3xl mx-auto px-6 text-center">
-            <div class="reveal">
-                <p class="eyebrow mb-4">Contact</p>
-                <h2 class="font-display display-tight text-4xl md:text-5xl font-semibold mb-6">Let's work together.</h2>
-                <p class="text-lg text-slate2 mb-10 max-w-xl mx-auto">
-                    Whether you have a project in mind or simply want to connect, my inbox is always open.
+    <main id="top" class="wrap">
+        <div class="hero">
+            <div>
+                <p class="place">Birtamode, Jhapa, Nepal</p>
+                <h1>Full-stack<br>web developer.</h1>
+                <p class="lede">Self-motivated and at home in agile teams. I troubleshoot carefully, ship practical software, and stay close to what a client actually needs.</p>
+                <p class="lede">I work well with a team, keep the result in view, and care about the person who ends up using it.</p>
+                <p class="meta">
+                    <a href="mailto:koiralaprism@gmail.com">koiralaprism@gmail.com</a>
+                    <span class="dot">/</span>
+                    <a href="tel:+9779818195512">+977 9818195512</a>
+                    <span class="dot">/</span>
+                    <a href="https://github.com/prismkoirala" target="_blank" rel="noopener">GitHub</a>
                 </p>
-                <a href="mailto:koiralaprism@gmail.com" class="inline-block bg-navy text-white px-9 py-4 rounded-full font-medium hover:bg-accent transition mb-14">koiralaprism@gmail.com</a>
-
-                <div class="grid sm:grid-cols-3 gap-6 text-sm">
-                    <div>
-                        <p class="font-semibold mb-1">Phone</p>
-                        <a href="tel:+9779818195512" class="text-slate2 hover:text-accent transition">+977 9818195512</a>
-                    </div>
-                    <div>
-                        <p class="font-semibold mb-1">Location</p>
-                        <p class="text-slate2">Birtamode, Jhapa, Nepal</p>
-                    </div>
-                    <div>
-                        <p class="font-semibold mb-1">Online</p>
-                        <p class="text-slate2">
-                            <a href="https://github.com/prismkoirala" target="_blank" class="hover:text-accent transition">GitHub</a> ·
-                            <a href="https://www.prismkoirala.com" target="_blank" class="hover:text-accent transition">Website</a>
-                        </p>
-                    </div>
-                </div>
             </div>
+            <img class="portrait" src="pp.jpg" alt="Prism Koirala">
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="py-10 border-t border-mist">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-sm text-slate2">
-            <p>© 2026 Prism Koirala. All rights reserved.</p>
-            <a href="prism_resume.pdf" download="prism_resume.pdf" class="hover:text-accent transition font-medium">Download CV</a>
-        </div>
-    </footer>
+        <section class="block" id="about">
+            <h2 class="label">Skills</h2>
+            <dl class="skills">
+                <dt>Languages</dt>
+                <dd>HTML5, CSS3, JavaScript, jQuery, Python</dd>
+                <dt>Frameworks</dt>
+                <dd>Django, React.js, Vue.js, Pandas, Graphene</dd>
+                <dt>Data</dt>
+                <dd>PostgreSQL, MySQL, MongoDB, Mongoose, GraphQL</dd>
+                <dt>Platforms</dt>
+                <dd>AWS, Azure, Git</dd>
+            </dl>
+        </section>
+
+        <section class="block" id="experience">
+            <h2 class="label">Experience</h2>
+            <div>
+                <article class="job">
+                    <div class="job-head">
+                        <div>
+                            <h3>IT &amp; Software System Specialist</h3>
+                            <p class="org">Pranik Oil Store Pvt. Ltd. · Jhapa, Nepal</p>
+                        </div>
+                        <time>Jan 2026 — Present</time>
+                    </div>
+                    <ul>
+                        <li>Managed and maintained the station’s computer systems, software, and IT infrastructure.</li>
+                        <li>Built and maintained internal tools for sales, inventory, reporting, and day-to-day operations.</li>
+                        <li>Automated routine reporting and administrative work with Python.</li>
+                        <li>Developed web dashboards and applications for monitoring and reporting.</li>
+                    </ul>
+                </article>
+
+                <article class="job">
+                    <div class="job-head">
+                        <div>
+                            <h3>Intermediate Full Stack Developer</h3>
+                            <p class="org">Go Local Nepal Pvt. Ltd. · Kathmandu, Nepal</p>
+                        </div>
+                        <time>Mar 2022 — Dec 2023</time>
+                    </div>
+                    <p class="note">End-to-end work across projects: maintenance, debugging, and making applications faster by rebuilding the parts that needed it.</p>
+                    <ul>
+                        <li>Led real-time web applications in Python, Django, and React.js for medical, CRM, and commerce clients.</li>
+                    </ul>
+                </article>
+
+                <article class="job">
+                    <div class="job-head">
+                        <div>
+                            <h3>Sr. Full Stack Web Developer</h3>
+                            <p class="org">Pathway Technologies &amp; Services · Kathmandu, Nepal</p>
+                        </div>
+                        <time>Jan 2021 — Feb 2022</time>
+                    </div>
+                    <ul>
+                        <li>Maintained web applications with Django and Flask, and built responsive interfaces in React and Vue.js.</li>
+                        <li>Created REST APIs for React Native apps.</li>
+                    </ul>
+                </article>
+
+                <article class="job">
+                    <div class="job-head">
+                        <div>
+                            <h3>Full Stack Python/JS Developer</h3>
+                            <p class="org">TGL Nepal Pvt. Ltd. · Kathmandu, Nepal</p>
+                        </div>
+                        <time>Mar 2020 — Jan 2021</time>
+                    </div>
+                    <ul>
+                        <li>Integrated third-party APIs and services so the applications could do more.</li>
+                        <li>Worked with cross-functional teams to understand requirements and deliver on time.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="block" id="projects">
+            <h2 class="label">Projects</h2>
+            <div>
+                <article class="project">
+                    <h3>Device42</h3>
+                    <p>DCIM, CMDB, ITAM, and reporting in one platform. I looked after the timeline, the PostgreSQL business logic, Django API views, and how the data was structured.</p>
+                    <p class="stack">HTML, CSS, JavaScript, PostgreSQL, REST, AWS Workspaces</p>
+                </article>
+                <article class="project">
+                    <h3>Digital QR Menu</h3>
+                    <p>A digital QR menu used by more than ten restaurants across Nepal. I looked at what the market needed and built for ordering in real time.</p>
+                    <p class="stack">Django, React, Next.js, PostgreSQL, REST</p>
+                </article>
+                <article class="project">
+                    <h3>US Case Tracker</h3>
+                    <p>A mobile app for tracking USCIS cases, fed by US federal JSON. I wrote backend scripts that turned unstructured data into something the app could serve.</p>
+                    <p class="stack">Django, REST, React Native</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="block" id="education">
+            <h2 class="label">Education</h2>
+            <div>
+                <article class="school">
+                    <div class="job-head">
+                        <div>
+                            <h3>Masters in Data Analytics</h3>
+                            <p>Webster University · St. Louis, MO, USA</p>
+                        </div>
+                        <span class="cred">Dec 2023 — Dec 2025 · 25 points</span>
+                    </div>
+                </article>
+                <article class="school">
+                    <div class="job-head">
+                        <div>
+                            <h3>Bachelors in Computer Science</h3>
+                            <p>JAIN University · Bangalore, India</p>
+                        </div>
+                        <span class="cred">2017 — 2020 · 3.0 GPA</span>
+                    </div>
+                </article>
+                <article class="school">
+                    <div class="job-head">
+                        <div>
+                            <h3>Higher Secondary Education</h3>
+                            <p>Modern Indian School</p>
+                        </div>
+                        <span class="cred">2015 — 2017 · 79%</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="block" id="contact">
+            <h2 class="label">Contact</h2>
+            <div class="contact-list">
+                <a href="mailto:koiralaprism@gmail.com">koiralaprism@gmail.com</a>
+                <a href="tel:+9779818195512">+977 9818195512</a>
+                <span>Birtamode, Jhapa, Nepal</span>
+                <p class="meta" style="margin-top:0.6rem">
+                    <a href="https://github.com/prismkoirala" target="_blank" rel="noopener">GitHub</a>
+                    <span class="dot">/</span>
+                    <a href="https://www.prismkoirala.com" target="_blank" rel="noopener">prismkoirala.com</a>
+                    <span class="dot">/</span>
+                    <a href="prism_resume.pdf" download="Prism-Koirala-CV.pdf">Download CV</a>
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <span>© 2026 Prism Koirala</span>
+            <a href="prism_resume.pdf" download="Prism-Koirala-CV.pdf">Download CV</a>
+        </footer>
+    </main>
 
     <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-nav');
+        btn.addEventListener('click', function () {
+            const open = menu.classList.toggle('open');
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.add('hidden');
+        menu.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                menu.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
             });
         });
-
-        // Scroll reveal
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.12 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
